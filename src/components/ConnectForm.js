@@ -34,7 +34,7 @@ function ConnectForm() {
         }
         try {
             const body = JSON.stringify(newResponse)
-            await axios.post('/response', body, config);
+            await axios.post('https://rebsback.vercel.app/response', body, config);
 
 
         } catch (err) {
