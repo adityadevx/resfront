@@ -41,7 +41,7 @@ function App() {
     }
     setTimeout(() => {
       setModal(null)
-    }, 5000);
+    }, 3000);
   }
 
   return (
