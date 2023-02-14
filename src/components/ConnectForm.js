@@ -4,7 +4,7 @@ import { } from 'react-router-dom'
 
 
 
-function ConnectForm() {
+function ConnectForm({modalHandler}) {
 
     const [fetchedData, setFetchedData] = useState([]);
     const [formData, setFormData] = useState({
@@ -40,6 +40,8 @@ function ConnectForm() {
         } catch (err) {
             console.log("error", err.response.data);
         }
+        
+        modalHandler();
     }
 
 

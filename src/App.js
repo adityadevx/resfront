@@ -3,6 +3,7 @@ import ConnectForm from "./components/ConnectForm";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from "./components/About";
+import Modal from './components/Modal'
 import FetchResponse from "./components/FetchResponse";
 import axios from 'axios';
 
@@ -11,7 +12,8 @@ import axios from 'axios';
 function App() {
 
   const [show, setShow] = useState(false)
-  const [fetchData,setFetchedData] = useState([])
+  const [fetchData, setFetchedData] = useState([])
+  const [modal, setModal] = useState(null)
 
   const showHandler = async () => {
     if (!show) {
@@ -28,9 +30,18 @@ function App() {
           // console.error(err);
         });
     }
-    else{
+    else {
       setShow(null)
     }
+  }
+
+  const modalHandler = () => {
+    if (!modal) {
+      setModal(true)
+    }
+    setTimeout(() => {
+      setModal(null)
+    }, 5000);
   }
 
   return (
@@ -38,9 +49,15 @@ function App() {
       <div className="App">
         <Navbar showHandler={showHandler} />
         <Routes>
-          <Route path="/" element={<ConnectForm />} />
+          <Route path="/" element={
+          <>
+          <Modal modal={modal} />
+          <ConnectForm modalHandler={modalHandler}/>
+          </>
+        }
+          />
           <Route path="/about" element={<About />} />
-          <Route path="/fetchResponse" element={<FetchResponse showHandler={showHandler}  data= {fetchData}/>} />
+          <Route path="/fetchResponse" element={<FetchResponse showHandler={showHandler} data={fetchData} />} />
         </Routes>
       </div>
     </Router>
