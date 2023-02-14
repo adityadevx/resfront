@@ -1,12 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
-import { } from 'react-router-dom'
-
-
 
 function ConnectForm({modalHandler}) {
-
-    const [fetchedData, setFetchedData] = useState([]);
     const [formData, setFormData] = useState({
         name: "",
         desc: ""
@@ -21,7 +16,7 @@ function ConnectForm({modalHandler}) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(formData)
+        // console.log(formData)
 
         const newResponse = {
             name: name,
@@ -38,9 +33,8 @@ function ConnectForm({modalHandler}) {
 
 
         } catch (err) {
-            console.log("error", err.response.data);
-        }
-        
+            // console.log("error", err.response.data);
+        }  
         modalHandler();
     }
 

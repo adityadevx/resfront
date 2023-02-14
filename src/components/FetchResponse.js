@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 
 function FetchResponse({ showHandler, data }) {
@@ -13,13 +13,13 @@ function FetchResponse({ showHandler, data }) {
                 <div className="container mt-4">
                     <div className="row row-cols-1 row-cols-md-3 g-4">
                         {showHandler &&
-                            data.map((element,index) => {
+                            data.map((element, index) => {
                                 return (
                                     <div className="col" key={element._id}>
                                         <div className="card h-100">
                                             <div className="card-header">
-                                                {`Response No : ${index+1}`}
-                                                
+                                                {`Response No : ${index + 1}`}
+
                                             </div>
                                             <div className="card-body">
                                                 <h5 className="card-title">{element.name}</h5>

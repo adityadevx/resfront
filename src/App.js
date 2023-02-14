@@ -18,7 +18,7 @@ function App() {
   const showHandler = async () => {
     if (!show) {
       setShow(true)
-      const response = await axios.get('https://rebsback.vercel.app/response');
+      
       axios.get('https://rebsback.vercel.app/response')
         .then(response => {
           // Handle response
