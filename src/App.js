@@ -7,8 +7,6 @@ import Modal from './components/Modal'
 import FetchResponse from "./components/FetchResponse";
 import axios from 'axios';
 
-
-
 function App() {
 
   const [show, setShow] = useState(false)
@@ -18,7 +16,6 @@ function App() {
   const showHandler = async () => {
     if (!show) {
       setShow(true)
-      
       axios.get('https://rebsback.vercel.app/response')
         .then(response => {
           // Handle response
